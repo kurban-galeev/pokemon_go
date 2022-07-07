@@ -3,10 +3,9 @@ import "styled-components";
 declare module "styled-components" {
   export interface DefaultTheme {
     colors: {
-      powderWhite: string;
-      persianGreen: string;
-      lightBlue: string;
-      onyx: string;
+      yelow: string[]
+      black: string[]
+      green: string[]
     };
     fonts: string[];
     fontSizes: {

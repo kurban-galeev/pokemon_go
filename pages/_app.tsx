@@ -15,10 +15,9 @@ interface AppProps {
 }
 const theme = {
   colors: {
-    powderWhite: "#FFFDF9",
-    persianGreen: "#06B49A",
-    lightBlue: "#AFDBD2",
-    onyx: "#36313D"
+    yelow: ["#F5DB13", "#F2B807"],
+    black: ['#000000', '#212121'],
+    green: ['#73D677']
   },
   fonts: ["sans-serif", "Roboto"],
   fontSizes: {
