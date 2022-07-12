@@ -1,18 +1,18 @@
 export const ListNavigation = [
   {
   id: 1,
-  name: 'Home'
+  name: 'home'
   },
   {
     id: 1,
-    name: 'Pokédex'
+    name: 'pokedex'
   },
   {
     id: 1,
-    name: 'Legendaries'
+    name: 'legendaries'
   },
   {
     id: 1,
-    name: 'Compare'
+    name: 'compare'
   },
 ]

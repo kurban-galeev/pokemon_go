@@ -2,6 +2,7 @@ import styled from "styled-components"
 import {noop} from 'lodash'
 import { ListNavigation } from "../../utils/constants"
 import { useState } from "react"
+import { useRouter } from "next/router"
 
 interface InterNavigation {
   id: number
@@ -31,15 +32,24 @@ const Title = styled.span<{isActivePage: boolean}>`
 
 export const Navigation = () => {
   const [isActivePage, setActivePage] = useState(false)
-  const pressOnTitle = () => {
+  const router = useRouter()
+  const pressOnTitle = (path: string) => {
     setActivePage(true)
+    if (path==='home') {
+      router.push('/')
+    } else {
+      router.push(path)
+    }
   }
+   const getWordToUpperFirstChar = (word: string) => {
+    return word[0].toUpperCase() + word.slice(1)
+   }
 
   return (
     <Container>
       {ListNavigation.map((item: InterNavigation) => (
-        <Title onClick={pressOnTitle} isActivePage={isActivePage}>
-          {item.name}
+        <Title onClick={()=> pressOnTitle(item.name)} isActivePage={isActivePage}>
+          {getWordToUpperFirstChar(item.name)}
         </Title>
       ))}
     </Container>
