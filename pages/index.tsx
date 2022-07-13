@@ -1,11 +1,12 @@
 import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
+import { Provider } from '../src/context'
 import { WelcomeScreen } from '../src/screens/welcome-screen'
 
 const Home: NextPage = () => {
   return (
-    <WelcomeScreen/>
+    <Provider>
+      <WelcomeScreen/>
+    </Provider>
 
   )
 }

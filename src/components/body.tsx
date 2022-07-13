@@ -1,7 +1,11 @@
 import { constants } from "fs"
 import { noop } from "lodash"
+import { useEffect } from "react"
 import styled from "styled-components"
+import { getPokemons } from "../../pages/api"
+import { useGlobalContext } from "../context"
 import { Footer } from "./footer"
+
 
 const Container = styled.div`
 display: flex;
@@ -36,9 +40,9 @@ const Description = styled.span`
   font-size: 32px;
   line-height: 37px;
 `
-const Button = styled.button`
+const Button = styled.button<{ isLightTheme: boolean }>`
   margin-top: 64px;
-  background: ${props => props.theme.colors.green[0]};
+  background: ${props => props.isLightTheme ? props.theme.colors.green[0] : props.theme.colors.grey[2]};
   box-shadow: inset 0px -9px 0px rgba(0, 0, 0, 0.18);
   border-radius: 11px;
   border-width: 0px;
@@ -80,23 +84,29 @@ export const Body = () => {
   const pressOnSeePokemons = () => {
     noop()
   }
+
+  useEffect(() => {
+    getPokemons()
+  })
+  const { isLightTheme } = useGlobalContext()
+
   return (
     <Container>
       <ContainerDescription >
         <Title>Find<TitleSmall> all your favorite</TitleSmall> Pokemon</Title>
 
-        <div style={{marginTop: 64}}>
+        <div style={{ marginTop: 64 }}>
           <Description>
             You can know the type of Pokemon, its strengths, disadvantages and abilities
           </Description>
         </div>
-
-        <Button onClick={pressOnSeePokemons}>
+        <Button onClick={pressOnSeePokemons} isLightTheme={isLightTheme}>
           <TextButton>See pokemons</TextButton>
         </Button>
       </ContainerDescription>
+
       <ContainerImage>
-        <img src ='/banner.png'/>
+        <img src='/banner.png' />
       </ContainerImage>
 
     </Container>

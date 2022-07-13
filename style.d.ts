@@ -6,6 +6,7 @@ declare module "styled-components" {
       yelow: string[]
       black: string[]
       green: string[]
+      grey: string[]
     };
     fonts: string[];
     fontSizes: {

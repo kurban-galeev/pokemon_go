@@ -24,10 +24,10 @@ align-items: center;
 export const Footer = () => {
   return (
     <Container>
-      <div style={{marginLeft: 127}}>
+      <div style={{ marginLeft: 127 }}>
         <Text>Make with ❤️</Text>
       </div>
-      <div style={{marginRight: 220}}>
+      <div style={{ marginRight: 220 }}>
         <Text>github</Text>
       </div>
     </Container>
