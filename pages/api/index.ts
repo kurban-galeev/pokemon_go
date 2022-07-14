@@ -1,11 +1,18 @@
-import { PokemonClient } from 'pokenode-ts';
+
 
 export const getPokemons = async () => {
-  const api = new PokemonClient()
+
+  try {
+    const response = await fetch("https://pokeapi.co/api/v2/pokemon/", {
+      headers: {
+        Accept: 'application/json',
+      },
+    })
+    return response.json()
 
 
-  await api
-    .getPokemonByName('luxray')
-    .then((data) => console.log(data)) // will output "Luxray"
-    .catch((error) => console.error(error));
+  } catch (e) {
+    console.log(e)
+
+  }
 }

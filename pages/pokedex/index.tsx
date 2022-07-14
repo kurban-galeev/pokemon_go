@@ -1,6 +1,8 @@
+import PokedexScreen from "../../src/screens/pokedex-screen"
+
 const Pokedex = () => {
   return (
-    <div></div>
+    <PokedexScreen />
   )
 }
 

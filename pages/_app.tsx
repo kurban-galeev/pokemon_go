@@ -1,5 +1,6 @@
 import { JSXElementConstructor, ReactElement } from "react";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
+import Layout from "../src/components/layout";
 import { theme } from "../src/theme";
 
 const GlobalStyle = createGlobalStyle`
@@ -16,12 +17,14 @@ interface AppProps {
 }
 
 
-export default function App({ Component, pageProps }: AppProps ) {
+export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <GlobalStyle />
       <ThemeProvider theme={theme}>
-        <Component {...pageProps} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </ThemeProvider>
     </>
   );

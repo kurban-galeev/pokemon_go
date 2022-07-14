@@ -1,8 +1,9 @@
+import CompareScreen from "../../src/screens/compare-screen"
 
 
 const Compare = () => {
   return (
-    <div></div>
+    <CompareScreen />
   )
 }
 export default Compare

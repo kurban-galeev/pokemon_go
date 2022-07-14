@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import { ListNavigation } from "../../utils/constants"
-import { useState } from "react"
 import { useRouter } from "next/router"
+import { useGlobalContext } from "../context"
 
 interface InterNavigation {
   id: number
@@ -12,29 +12,31 @@ const Container = styled.div`
   margin-right: 66px;
 `
 
-const Title = styled.span<{ isActivePage: boolean }>`
+const Title = styled.span<{ isActivePage: boolean, isLightTheme: boolean }>`
   margin-left: 66px;
   font-family: 'Karla';
   font-style: normal;
   font-weight: 400;
   font-size: 25px;
   line-height: 29px;
-  color: ${props => props.theme.colors.black[0]};
-  border-bottom: ${isActivePage => isActivePage ? '0px solid #212121' : '3px solid #212121'};
+  color: ${props => props.isLightTheme ? props.theme.colors.black[0] : props.theme.colors.white[0]};
+  border-bottom: ${props => props.isActivePage ? '3px solid #212121' : '0px solid #212121'};
 
     &:hover {
       cursor: pointer;
       }
 
 `
+interface PropsNav {
+  pathname: string
+}
 
 
-
-export const Navigation = () => {
-  const [isActivePage, setActivePage] = useState(false)
+export const Navigation = ({ pathname }: PropsNav) => {
   const router = useRouter()
+  const { isLightTheme } = useGlobalContext()
+
   const pressOnTitle = (path: string) => {
-    setActivePage(true)
     if (path === 'home') {
       router.push('/')
     } else {
@@ -44,11 +46,14 @@ export const Navigation = () => {
   const getWordToUpperFirstChar = (word: string) => {
     return word[0].toUpperCase() + word.slice(1)
   }
+  const underlineActiveHeading = (word: string) => {
+    return pathname === word || pathname === '' && word === 'home'
+  }
 
   return (
     <Container>
       {ListNavigation.map((item: InterNavigation) => (
-        <Title onClick={() => pressOnTitle(item.name)} isActivePage={isActivePage} key={item.id}>
+        <Title onClick={() => pressOnTitle(item.name)} isActivePage={underlineActiveHeading(item.name)} key={item.name} isLightTheme={isLightTheme}>
           {getWordToUpperFirstChar(item.name)}
         </Title>
       ))}

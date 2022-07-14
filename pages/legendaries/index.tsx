@@ -1,6 +1,8 @@
+import LegendariesScreen from "../../src/screens/legendaries-screen"
+
 const Legendaries = () => {
   return (
-    <div></div>
+    <LegendariesScreen />
   )
 }
 

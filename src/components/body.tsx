@@ -1,10 +1,10 @@
-import { constants } from "fs"
+
 import { noop } from "lodash"
 import { useEffect } from "react"
 import styled from "styled-components"
 import { getPokemons } from "../../pages/api"
 import { useGlobalContext } from "../context"
-import { Footer } from "./footer"
+import { useRouter } from "next/router"
 
 
 const Container = styled.div`
@@ -81,12 +81,13 @@ const ContainerDescription = styled.div`
 
 
 export const Body = () => {
+  const router = useRouter()
   const pressOnSeePokemons = () => {
-    noop()
+    router.push('pokedex')
   }
 
   useEffect(() => {
-    getPokemons()
+    getPokemons().then((data) => console.log(data))
   })
   const { isLightTheme } = useGlobalContext()
 

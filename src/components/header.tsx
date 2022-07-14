@@ -1,5 +1,4 @@
 import styled from "styled-components"
-import { Checkbox } from "./checkbox"
 import { Navigation } from "./navigation"
 import { useRouter } from 'next/router'
 import { ChangeTheme } from "./change-theme"
@@ -33,13 +32,19 @@ export const Header = () => {
   const router = useRouter()
   const { isLightTheme } = useGlobalContext()
 
+  const reloadPage = () => {
+    router.push('/')
+    setTimeout(() => router.reload(), 100)
+
+  }
+
   return (
     <Container isLightTheme={isLightTheme} >
-      <ContainerLogo onClick={() => router.reload()}>
+      <ContainerLogo onClick={reloadPage}>
         <img src='/logo.svg' />
       </ContainerLogo>
 
-      <Navigation />
+      <Navigation pathname={router.pathname.slice(1)} />
 
       <ChangeTheme />
 

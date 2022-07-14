@@ -3,7 +3,8 @@ export const theme = {
     yelow: ["#F5DB13", "#F2B807"],
     black: ['#000000', '#212121'],
     green: ['#73D677'],
-    grey: ['rgba(0, 0, 0, 0.1)', '#212121', '#4F4F4F']
+    grey: ['rgba(0, 0, 0, 0.1)', '#212121', '#4F4F4F'],
+    white: ['#FFFFFF']
 
   },
   fonts: ["sans-serif", "Roboto"],
