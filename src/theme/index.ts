@@ -4,7 +4,8 @@ export const theme = {
     black: ['#000000', '#212121'],
     green: ['#73D677'],
     grey: ['rgba(0, 0, 0, 0.1)', '#212121', '#4F4F4F'],
-    white: ['#FFFFFF']
+    white: ['#FFFFFF', '#F2F2F2', '#F6F7F9'],
+    boxShadow: ['rgba(1, 28, 64, 0.2)', 'rgba(33, 33, 33, 0.1)']
 
   },
   fonts: ["sans-serif", "Roboto"],

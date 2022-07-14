@@ -16,3 +16,20 @@ export const getPokemons = async () => {
 
   }
 }
+
+
+export const getPokemon = async (url: string | '') => {
+  try {
+    const response = await fetch(url, {
+      headers: {
+        Accept: 'application/json',
+      },
+    })
+    return response.json()
+
+
+  } catch (e) {
+    console.log(e)
+
+  }
+}

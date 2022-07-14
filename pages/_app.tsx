@@ -1,6 +1,7 @@
 import { JSXElementConstructor, ReactElement } from "react";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import Layout from "../src/components/layout";
+import ProviderContext from "../src/context";
 import { theme } from "../src/theme";
 
 const GlobalStyle = createGlobalStyle`
@@ -17,15 +18,20 @@ interface AppProps {
 }
 
 
-export default function App({ Component, pageProps }: AppProps) {
+const App = ({ Component, pageProps }: AppProps) => {
   return (
     <>
       <GlobalStyle />
+
       <ThemeProvider theme={theme}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <ProviderContext>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </ProviderContext>
       </ThemeProvider>
+
     </>
   );
 }
+export default App

@@ -8,6 +8,7 @@ declare module "styled-components" {
       green: string[]
       grey: string[]
       white: string[]
+      boxShadow: string[]
     };
     fonts: string[];
     fontSizes: {

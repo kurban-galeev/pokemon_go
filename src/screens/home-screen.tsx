@@ -1,6 +1,4 @@
 
-import { noop } from "lodash"
-import { useEffect } from "react"
 import styled from "styled-components"
 import { getPokemons } from "../../pages/api"
 import { useGlobalContext } from "../context"
@@ -8,8 +6,9 @@ import { useRouter } from "next/router"
 
 
 const Container = styled.div`
-display: flex;
-justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 190px;
 
 `
 const ContainerImage = styled.div`
@@ -80,15 +79,13 @@ const ContainerDescription = styled.div`
 
 
 
-export const Body = () => {
+export const HomeScreen = () => {
   const router = useRouter()
   const pressOnSeePokemons = () => {
     router.push('pokedex')
   }
 
-  useEffect(() => {
-    getPokemons().then((data) => console.log(data))
-  })
+
   const { isLightTheme } = useGlobalContext()
 
   return (
